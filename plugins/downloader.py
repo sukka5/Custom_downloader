@@ -46,6 +46,7 @@ async def youtube_dl_call_back(bot, update):
         if len(url_parts) == 2:
             youtube_dl_url = url_parts[0]
             custom_file_name = url_parts[1]
+            custom_caption = url_parts[2]
         if youtube_dl_url is not None:
             youtube_dl_url = youtube_dl_url.strip()
         if custom_file_name is not None:
@@ -68,7 +69,7 @@ async def youtube_dl_call_back(bot, update):
     )
     description = Translation.CUSTOM_CAPTION_UL_FILE
     if custom_file_name:
-        description = custom_file_name
+        description = f"▪️**{custom_caption}**"
         # escape Markdown and special characters
     tmp_directory_for_each_user = Config.DOWNLOAD_LOCATION + \
         "/" + str(update.from_user.id) + f'{random1}'
