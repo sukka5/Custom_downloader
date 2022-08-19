@@ -19,7 +19,7 @@ from plugins import callbacks
 from Translation import Translation
 from plugins.random import random_char
 
-@Client.on_message(filters.private & filters.regex(pattern=".*http.*"))
+@Client.on_message(filters.private & filters.regex(pattern="http://"))
 async def echo(bot, update):
     logger.info(update.from_user)
     url = update.text
